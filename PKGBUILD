@@ -14,8 +14,8 @@ source=(https://download.pydio.com/pub/cells/release/${pkgver}/linux-amd64/pydio
         cells.conf)
 #install=enlightenment.install
 sha1sums=('e20e4a124d0aa51070d6c1c8432d8561a39ba646'
-          'e2293eb15201b12ab3b9c1af9b01f0cb13106903'
-          '031f688913ff59d46ed6e3bb099dbc236a00ce58')
+          '8e06d9527bf89ce369dd4241dfc6050c6d44735f'
+          'f5a4108d56fd95b0f21491095a0e329cfc85fbf3')
 
 build() {
   mkdir -p "${srcdir}/${pkgname}-${pkgver}"

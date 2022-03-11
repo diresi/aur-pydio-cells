@@ -6,13 +6,13 @@ After=network-online.target
 AssertFileIsExecutable=/usr/bin/cells
 
 [Service]
-User=pydio
-Group=pydio
-WorkingDirectory=/home/pydio
+User=cells
+Group=cells
+WorkingDirectory=/home/cells
 PermissionsStartOnly=true
 
 AmbientCapabilities=CAP_NET_BIND_SERVICE
-ExecStart=/opt/pydio/bin/cells start
+ExecStart=/usr/bin/cells start
 Restart=on-failure
 StandardOutput=journal
 StandardError=inherit
@@ -24,7 +24,7 @@ SuccessExitStatus=0
 
 # Add environment variables
 Environment=CELLS_ENABLE_METRICS=false
-Environment=CELLS_WORKING_DIR=/var/cells
+Environment=CELLS_WORKING_DIR=/home/cells/.config/pydio/cells
 
 [Install]
 WantedBy=multi-user.target
