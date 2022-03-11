@@ -1,0 +1,30 @@
+[Unit]
+Description=Pydio Cells
+Documentation=https://pydio.com
+Wants=network-online.target
+After=network-online.target
+AssertFileIsExecutable=/usr/bin/cells
+
+[Service]
+User=pydio
+Group=pydio
+WorkingDirectory=/home/pydio
+PermissionsStartOnly=true
+
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+ExecStart=/opt/pydio/bin/cells start
+Restart=on-failure
+StandardOutput=journal
+StandardError=inherit
+LimitNOFILE=65536
+TimeoutStopSec=5
+KillSignal=INT
+SendSIGKILL=yes
+SuccessExitStatus=0
+
+# Add environment variables
+Environment=CELLS_ENABLE_METRICS=false
+Environment=CELLS_WORKING_DIR=/var/cells
+
+[Install]
+WantedBy=multi-user.target
